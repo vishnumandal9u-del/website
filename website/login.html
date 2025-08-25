@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login / Signup</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      display: flex; justify-content: center; align-items: center;
+      height: 100vh; margin: 0; color: #333;
+    }
+    .container {
+      background: white; padding: 30px; border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      width: 350px; text-align: center;
+    }
+    h2 { margin-bottom: 20px; color: #2575fc; }
+    input {
+      width: 100%; padding: 12px; margin: 10px 0;
+      border: 1px solid #ccc; border-radius: 8px;
+    }
+    button {
+      width: 100%; padding: 12px; background: #2575fc; color: white;
+      border: none; border-radius: 8px; font-size: 16px; cursor: pointer;
+      margin-top: 10px;
+    }
+    button:hover { background: #1a5ad7; }
+    p { margin-top: 15px; }
+    a { color: #2575fc; cursor: pointer; }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2 id="formTitle">Signup</h2>
+    
+    <div id="signupForm">
+      <input type="text" id="signupName" placeholder="Full Name" required>
+      <input type="email" id="signupEmail" placeholder="Email" required>
+      <input type="password" id="signupPassword" placeholder="Password" required>
+      <button onclick="signup()">Signup</button>
+      <p>Already have an account? <a onclick="showLogin()">Login</a></p>
+    </div>
+
+    <div id="loginForm" style="display:none;">
+      <input type="email" id="loginEmail" placeholder="Email" required>
+      <input type="password" id="loginPassword" placeholder="Password" required>
+      <button onclick="login()">Login</button>
+      <p>Don’t have an account? <a onclick="showSignup()">Signup</a></p>
+    </div>
+  </div>
+
+  <script>
+    // Switch forms
+    function showLogin() {
+      document.getElementById("signupForm").style.display = "none";
+      document.getElementById("loginForm").style.display = "block";
+      document.getElementById("formTitle").innerText = "Login";
+    }
+    function showSignup() {
+      document.getElementById("signupForm").style.display = "block";
+      document.getElementById("loginForm").style.display = "none";
+      document.getElementById("formTitle").innerText = "Signup";
+    }
+
+    // Signup function
+    function signup() {
+      let name = document.getElementById("signupName").value;
+      let email = document.getElementById("signupEmail").value;
+      let password = document.getElementById("signupPassword").value;
+
+      if (name && email && password) {
+        localStorage.setItem(email, JSON.stringify({name, email, password}));
+        alert("Signup successful! Please login.");
+        showLogin();
+      } else {
+        alert("Please fill all fields.");
+      }
+    }
+
+    // Login function
+    function login() {
+      let email = document.getElementById("loginEmail").value;
+      let password = document.getElementById("loginPassword").value;
+
+      let user = JSON.parse(localStorage.getItem(email));
+
+      if (user && user.password === password) {
+        alert("Welcome, " + user.name + " 🎉");
+        window.location.href = "index.html"; // 👉 login ke baad main site open
+      } else {
+        alert("Invalid email or password ❌");
+      }
+    }
+  </script>
+
+</body>
+</html>

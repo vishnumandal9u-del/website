@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vishnu Mandal | Portfolio</title>
+  <link rel="icon" type="image/png" href="/my website/profile.jpg.jpg">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; background: #f4f6f9; color: #333; }
+
+    /* Navbar */
+    header {
+      background: #007bff;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    header h1 { font-size: 22px; }
+    nav ul { list-style: none; display: flex; gap: 20px; }
+    nav ul li a { color: white; text-decoration: none; font-weight: bold; transition: 0.3s; }
+    nav ul li a:hover { color: #ffdd57; }
+
+    /* Hamburger */
+    .menu-toggle { display: none; flex-direction: column; cursor: pointer; }
+    .menu-toggle div {
+      width: 25px; height: 3px; background: white; margin: 4px 0;
+    }
+    @media(max-width: 768px) {
+      nav ul {
+        display: none; flex-direction: column; background: #007bff;
+        position: absolute; top: 60px; right: 20px; width: 200px; padding: 15px;
+        border-radius: 8px;
+      }
+      nav ul.show { display: flex; }
+      .menu-toggle { display: flex; }
+    }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: 80px 20px;
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                  url("https://picsum.photos/1200/600?random=20") no-repeat center/cover;
+      color: white;
+    }
+    .hero img {
+      width: 150px; height: 150px;
+      border-radius: 50%; border: 4px solid #fff;
+      margin-bottom: 20px; object-fit: cover;
+    }
+    .hero h2 { font-size: 36px; margin-bottom: 10px; }
+    .hero p { font-size: 18px; margin-bottom: 30px; }
+    .hero button {
+      padding: 12px 25px; font-size: 16px;
+      background: #ffdd57; border: none; border-radius: 8px;
+      cursor: pointer; transition: 0.3s;
+    }
+    .hero button:hover { background: #ffc107; }
+
+    /* About */
+    .about {
+      padding: 50px 20px;
+      display: flex; flex-wrap: wrap;
+      align-items: center; gap: 30px;
+      background: #fff;
+    }
+    .about img {
+      flex: 1 1 400px; max-width: 500px;
+      border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .about-text { flex: 1 1 400px; }
+    .about-text h2 { margin-bottom: 15px; font-size: 28px; color: #007bff; }
+    .about-text p { font-size: 18px; line-height: 1.6; color: #444; }
+
+    /* Services */
+    .services {
+      padding: 50px 20px;
+      text-align: center;
+      background: #f9f9f9;
+    }
+    .services h2 { font-size: 30px; margin-bottom: 30px; color: #007bff; }
+    .service-boxes {
+      display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;
+    }
+    .service {
+      flex: 1 1 250px; max-width: 300px;
+      background: white; padding: 20px; border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: 0.3s;
+    }
+    .service:hover { transform: translateY(-8px); }
+    .service h3 { margin-bottom: 10px; color: #333; }
+
+    /* Contact */
+    .contact {
+      padding: 50px 20px; background: #fff; text-align: center;
+    }
+    .contact h2 { font-size: 30px; margin-bottom: 20px; color: #007bff; }
+    .contact form {
+      max-width: 500px; margin: auto; display: flex; flex-direction: column; gap: 15px;
+    }
+    .contact input, .contact textarea {
+      padding: 12px; border: 1px solid #ccc; border-radius: 8px; font-size: 16px;
+    }
+    .contact button {
+      padding: 12px; background: #007bff; color: white;
+      border: none; border-radius: 8px; font-size: 16px;
+      cursor: pointer; transition: 0.3s;
+    }
+    .contact button:hover { background: #0056b3; }
+
+    /* Footer */
+    footer {
+      text-align: center; padding: 20px;
+      background: #333; color: white; margin-top: 40px;
+    }
+    footer a { color: #c7a82c; text-decoration: none; margin: 0 5px; }
+    footer a:hover { text-decoration: underline; }
+    .signature { margin-top: 10px; font-size: 16px; color: #ffdd57; }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header>
+    <h1>Vishnu Mandal</h1>
+    <div class="menu-toggle" onclick="document.querySelector('nav ul').classList.toggle('show')">
+      <div></div><div></div><div></div>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="login.html" target="_blank" style="background:#2575fc; color:white; padding:6px 12px; border-radius:6px;">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <img src="/my website/profile.jpg.jpg" alt="Vishnu Mandal">
+    <h2>Hi, I'm Vishnu Mandal 🚀</h2>
+    <p>Web Developer & Designer</p>
+    <button onclick="alert('Thanks for visiting 🚀')">Get Started</button>
+  </section>
+
+  <!-- About -->
+  <section class="about" id="about">
+    <img src="/my website/favicon.png.jpg" alt="About Image">
+    <div class="about-text">
+      <h2>About Vishnu</h2>
+      <p>
+        Hello! I'm <b>Vishnu Mandal</b>, a passionate developer and designer 
+        who loves building modern, responsive, and user-friendly websites.  
+        My mission is to help businesses grow online with cutting-edge solutions 
+        in web design, app development, and digital marketing. 🚀
+      </p>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="services" id="services">
+    <h2>My Services</h2>
+    <div class="service-boxes">
+      <div class="service">
+        <h3>🌐 Web Design</h3>
+        <p>Modern and responsive websites tailored for your business.</p>
+      </div>
+      <div class="service">
+        <h3>📱 App Development</h3>
+        <p>Mobile-friendly applications with smooth performance.</p>
+      </div>
+      <div class="service">
+        <h3>📢 Digital Marketing</h3>
+        <p>Grow your online presence with SEO and social media strategies.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact" id="contact">
+    <h2>Contact Me</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Vishnu Mandal. All Rights Reserved.</p>
+    <p>📞 Contact: +91 9612173917 | ✉️ Email: vishnumandal9u@gmail.com</p>
+    <p>
+      🌐 Follow me: 
+      <a href="https://www.facebook.com/share/163bWeX56p/" target="_blank">Facebook</a> | 
+      <a href="https://youtube.com/@zxmdak?si=wcBpWPjPOmgkxmJR" target="_blank">Youtube</a> | 
+      <a href="https://www.instagram.com/vishnumandal9u?igsh=OW42d2Y4bHh1NmFl" target="_blank">Instagram</a> | 
+      <a href="https://www.linkedin.com/in/%C4%B7%C5%A9m%C3%A2%C5%99-v%C4%A9%C5%A1%C4%A5%C5%86%C3%BC-9933a5312" target="_blank">LinkedIn</a>
+    </p>
+    <p class="signature">✨ Made with ❤️ by Vishnu Mandal ✨</p>
+  </footer>
+
+</body>
+</html>
